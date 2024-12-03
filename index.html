@@ -9,6 +9,13 @@
 <body>
   <div id="app">
     <h1>Tik Tak Toe</h1>
+    <div class="color-selectors">
+      <label for="color-x">X Color:</label>
+      <input type="color" id="color-x" value="#ff0000">
+      
+      <label for="color-o">O Color:</label>
+      <input type="color" id="color-o" value="#0000ff">
+    </div>
     <div class="game-board">
       <div class="cell" data-index="0"></div>
       <div class="cell" data-index="1"></div>
@@ -23,13 +30,6 @@
     <div class="game-info">
       <p id="status">Player X's turn</p>
       <button id="reset">Reset Game</button>
-    </div>
-    <div class="color-settings">
-      <label for="xColor">Choose color for X:</label>
-      <input type="color" id="xColor" value="#ff0000">
-
-      <label for="oColor">Choose color for O:</label>
-      <input type="color" id="oColor" value="#0000ff">
     </div>
   </div>
   <script src="js/script.js"></script>
