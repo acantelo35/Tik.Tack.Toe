@@ -1,3 +1,4 @@
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -11,8 +12,14 @@ body {
   margin: 0 auto;
 }
 
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Color Selector Section */
 .color-selectors {
-  margin: 10px 0;
+  margin: 15px 0;
 }
 
 .color-selectors label {
@@ -21,9 +28,10 @@ body {
 }
 
 .color-selectors input {
-  margin-right: 15px;
+  margin-right: 20px;
 }
 
+/* Game Board Styles */
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -47,6 +55,7 @@ body {
   cursor: not-allowed;
 }
 
+/* Status and Reset Button */
 #status {
   font-size: 1.2rem;
   margin: 10px 0;
