@@ -2,14 +2,14 @@
 const cells = document.querySelectorAll('.cell');
 const statusText = document.getElementById('status');
 const resetButton = document.getElementById('reset');
-const xColorPicker = document.getElementById('xColor');
-const oColorPicker = document.getElementById('oColor');
+const colorXInput = document.getElementById('color-x');
+const colorOInput = document.getElementById('color-o');
 
 let currentPlayer = 'X';
 let gameActive = true;
 let board = ['', '', '', '', '', '', '', '', ''];
-let xColor = xColorPicker.value; // Default color for X
-let oColor = oColorPicker.value; // Default color for O
+let colorX = colorXInput.value;
+let colorO = colorOInput.value;
 
 // Winning conditions
 const winConditions = [
@@ -59,7 +59,7 @@ function handleCellClick(event) {
 
   board[index] = currentPlayer;
   event.target.textContent = currentPlayer;
-  event.target.style.color = currentPlayer === 'X' ? xColor : oColor;
+  event.target.style.color = currentPlayer === 'X' ? colorX : colorO;
   event.target.classList.add('taken');
 
   checkGameStatus();
@@ -68,3 +68,25 @@ function handleCellClick(event) {
 // Reset game
 function resetGame() {
   currentPlayer = 'X';
+  gameActive = true;
+  board = ['', '', '', '', '', '', '', '', ''];
+  cells.forEach(cell => {
+    cell.textContent = '';
+    cell.style.color = '';
+    cell.classList.remove('taken');
+  });
+  updateStatus('Player X\'s turn');
+}
+
+// Update colors when changed
+colorXInput.addEventListener('change', () => {
+  colorX = colorXInput.value;
+});
+
+colorOInput.addEventListener('change', () => {
+  colorO = colorOInput.value;
+});
+
+// Attach event listeners
+cells.forEach(cell => cell.addEventListener('click', handleCellClick));
+resetButton.addEventListener('click', resetGame);
